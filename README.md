@@ -22,3 +22,20 @@ mqsichangeresourcestats {broker name} -c inactive
 
 On the server connected to the IIB run-time;
 
+Create a queue;
+
+```
+define ql(IIB.METRICS)
+```
+
+Define the topic to which IIB will publish to;
+
+```
+define topic(IIB.METRICS) topicstr('$SYS/Broker/+/ResourceStatsistics') descr('IIB Metrics)
+```
+
+Define a subscription to put the messages onto the queue;
+
+```
+define sub(IIB.METRICS.ALL) topobj(IIB.METRICS) topicstr('#') dest('{queue name}')
+```
