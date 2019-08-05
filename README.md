@@ -1,5 +1,10 @@
 # iib-metrics (IIB Resource Metrics)
 
+The iib-metrics mircoservice API, captures metrics JVM and ODBC metrics from an IIB node.
+
+The output of the metrics is in prometheus format.
+
+
 ## Pre-requisits
 
 ### IIB Node
@@ -39,3 +44,5 @@ Define a subscription to put the messages onto the queue;
 ```
 define sub(IIB.METRICS.ALL) topobj(IIB.METRICS) topicstr('#') dest('{queue name}')
 ```
+
+## Running the IIB Resource Metrics API
