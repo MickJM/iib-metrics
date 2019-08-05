@@ -1,0 +1,21 @@
+
+# define queue
+define ql(IIB.METRICS)
+
+# define topic
+define topic(IIB.METRICS) topicstr('$SYS/Broker/+/ResourceStatistics/#') descr('IIB METRICS')
+
+# define sub
+define sub(IIB.METRICS.ALL) topicobj(IIB.METRICS) topicstr('#') dest('IIB METRICS - ALL EG GROUPS')
+
+mqsichangeresourcestats TSTIPD01 -c active
+mqsichangeresourcestats TSTIPD01 -c inactive
+
+
+# enable metrics for execution group
+mqsichangeresourcestats TSTIPD01 -c active -e {eg group}
+# disable metrics for execution group
+mqsichangeresourcestats TSTIPD01 -c inactive -e {eg group}
+
+http://www-01.ibm.com/support/docview.wss?uid=swg21678313
+

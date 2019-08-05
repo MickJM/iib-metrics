@@ -1,0 +1,32 @@
+ibm:
+  mq:
+    connName: localhost(1414)
+    queueManager: TSTQPD01
+    iibNode: TSTIPD01
+    channel: MQ.MONITOR.SVRCONN
+    queue: IIB.METRICS
+    sslCipherSpec: TLS_RSA_WITH_AES_256_CBC_SHA256
+    useSSL: false
+    user: MQMon01
+    password: Passw0rd
+    event:
+      delayInMilliSeconds: 10000
+      resetValue: 3
+    security:
+      truststore: C:\ProgramData\IBM\MQ\qmgrs\QMAP01\ssl\qmap01jks.jks
+      truststore-password: Passw0rd
+      keystore: C:\ProgramData\IBM\MQ\qmgrs\QMAP01\ssl\qmap01jks.jks
+      keystore-password: Passw0rd
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always        
+  security:
+    enabled: false
+server:
+  port:
+    8081
